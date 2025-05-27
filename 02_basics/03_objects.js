@@ -13,6 +13,10 @@
 // The {curely braces} is the Object
 // Objects store KEYS and VALUES
 
+
+//**************************************************************** OBJECT LITERALS *********************************** */
+
+
 // Let us declare a symbol
 const mySym = Symbol("key1")
 
