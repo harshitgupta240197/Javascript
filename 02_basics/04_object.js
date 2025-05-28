@@ -44,3 +44,39 @@ console.log(obj3);
 // An empty object is taken in the starting {} which will act as a permanent TARGET
 const obj4 = Object.assign({}, obj1, obj2) // On printing the result is { '1': 'a', '2': 'b', '3': 'a', '4': 'b' }
 console.log(obj4);
+
+// In real life case scenario to bind we use the SPREAD (...) operator
+const obj5 = {...obj1, ...obj2}
+console.log(obj5); // { '1': 'a', '2': 'b', '3': 'a', '4': 'b' }
+
+
+
+// The format in which the Data comes from Databases is like below
+const users = [
+    {
+        id: 1,
+        email: 'harshit@gmail.com'
+    },
+        {
+        id_1: 2,
+        email_2: 'harshit2@gmail.com'
+    }
+]
+
+//To access details
+users[1].email
+
+
+// Studying datatypes
+console.log(newUser); // { name: 'Harshit', age: 28, isLoggedIn: true }
+console.log(Object.keys(newUser)); // [ 'name', 'age', 'isLoggedIn' ]            => ARRAY
+console.log(Object.values(newUser)); // [ 'Harshit', 28, true ]
+
+// Creating key value pairs while printing to console using ENTRIES
+console.log(Object.entries(newUser)); // [ [ 'name', 'Harshit' ], [ 'age', 28 ], [ 'isLoggedIn', true ] ]
+
+
+// We can also check if the element is present or not using hasOwnProperty
+console.log(newUser.hasOwnProperty('isLoggedIn')); // Return results in Boolean
+
+
