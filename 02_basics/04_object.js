@@ -80,3 +80,35 @@ console.log(Object.entries(newUser)); // [ [ 'name', 'Harshit' ], [ 'age', 28 ],
 console.log(newUser.hasOwnProperty('isLoggedIn')); // Return results in Boolean
 
 
+//^^^^^^^^^^^^^^^^^^^^^^^^^^ DESTRUCTURING ***********************************//
+
+const course = {
+    name: 'JS course',
+    source: 'youtube',
+    mode: 'video'
+}
+
+// To access the data inside it
+course.mode
+// This is another way
+const {source} = course
+console.log(source);
+
+// destructuring: We can restructure an Object
+const {source: teacher} = course // Here we changed source to teacher but the value remains the same
+console.log(teacher);
+
+
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% JSON %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
+
+// JSON looks like this 
+
+// {
+//     naming: 'Harshit',
+//     age: 28,
+//     group: 'Alpha'
+// } 
+
+
+// APIs can be found in the form of both Objects {} and Arrays []
