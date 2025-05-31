@@ -53,3 +53,30 @@ function numAdder(numerical1, numerical2){
 
 const resultNumerical = numAdder(4, 7)
 console.log("Resultant Numerical: ", resultNumerical);
+
+
+
+
+
+// Creating another function that mentions Logged In user
+function loginUserMessage(username){
+    return `${username} just logged in`
+}
+
+const logging = loginUserMessage('Harshit')
+console.log(logging);
+console.log(loginUserMessage('Harshit')) // Another way
+
+
+
+
+//Introducing IF - ELSE conditions
+function userNameCheck(userIdentity){
+    if (userIdentity === undefined){                // can also be written like this : if(!userIdentity)
+        console.log("Please enter a username");
+        return
+    }
+    return `Welcome back ${userIdentity}`
+}
+
+console.log(userNameCheck());
