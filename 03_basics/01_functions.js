@@ -80,3 +80,66 @@ function userNameCheck(userIdentity){
 }
 
 console.log(userNameCheck());
+
+
+
+
+
+
+// Shopping Cary
+function calculateCartPrice(num1){
+    return num1
+}
+console.log(calculateCartPrice(200, 300, 400)); // This will always return num1 value   200
+
+
+
+// Using REST/Spread operator
+function calculateCartValue(...num2){ // In case val1, val2 are writen before ...num2 then only the last values will be diplayed which come after val1 and val2
+    return num2
+}
+console.log(calculateCartValue(200, 300, 400)); // Returns [ 200, 300, 400 ] which is an array
+
+
+
+
+
+
+
+
+// Learning how to pass an object in a function
+
+// First create an object
+const user = {
+    name: "Harshit",
+    gender: "Male"
+}
+
+// Now we will pass this object in a function
+function handleObject(anyObject){
+    console.log(`Username is ${anyObject.name} and Gender is ${anyObject.gender}`);
+    
+}
+
+handleObject({
+    name: "Gupta",
+    gender: "Male Harshit"
+}) // Returns Username is Gupta and Gender is Male Harshit
+
+
+
+
+
+
+
+
+
+// Learning to pass an ARRAY through a function
+const myNewArray = [200, 400, 500, 700, 1000]
+
+// Now we will create a function that can return the second value from any array
+function returnSecondValue(getArray){ // In this case we use getArray to keep everything generic
+    return getArray[1]
+}
+
+console.log(returnSecondValue(myNewArray)); // We can pass in any array inside this function and it will always return the second value
