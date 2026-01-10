@@ -40,7 +40,7 @@ visitedCities = []
 
 for (let i = 0; i < cities.length; i++) {
     
-    if (cities[i] === 'Paris') {
+    if (cities[i] === 'Paris' || cities[i] === 'paris') {         // Checks for both Paris and paris
         continue
     }
     visitedCities.push(cities[i])
