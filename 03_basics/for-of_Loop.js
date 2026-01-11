@@ -31,3 +31,23 @@ for (const tea of teaTypes) {
     
 }
 console.log(preferredTeas);
+
+
+
+
+// Use a FOR-OF loop to iterate through the array ['chai', 'green tea', 'black tea', 'jasmine tea', 'herbal tea'].
+//Stop when the length of the current tea name is greater than 10 
+//Store the teas iterated over in an array named 'shortTeas'
+
+let teaVariety = ['chai', 'green tea', 'black tea', 'jasmine tea', 'herbal tea']
+let shortTeas = []
+
+for (const x of teaVariety) {
+
+    if (x.length > 10) {
+        break
+    }
+    shortTeas.push(x)
+    
+}
+console.log(shortTeas);
