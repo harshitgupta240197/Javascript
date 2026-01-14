@@ -30,7 +30,7 @@ console.log(newTea.describe());
 //Using Prototype
 function Animal(species){
     return this.species = species; 
-    
+
 }
 
 Animal.prototype.sound = function(){
@@ -39,3 +39,7 @@ Animal.prototype.sound = function(){
 
 let dogNew = new Animal('Dog')
 console.log(dogNew.sound());
+
+
+
+
