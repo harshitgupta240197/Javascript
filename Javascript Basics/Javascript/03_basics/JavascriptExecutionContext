@@ -1,0 +1,92 @@
+1. Function Execution Context
+2. Global Execution Context
+3. Eval Execution Context (used in Mongoose)
+
+The Global EC of a browser is different from that of Node environment
+
+*****************************************************************************************
+
+A Javascript code block {} runs in TWO phases:
+
+1. Memory Creation Phase (Memory Phase) / Creation Phase :
+                
+                In this phase whatever variables etc. we have declared, memory gets assigned
+                to them. No execution steps takes place in this step.
+
+2. Execution Phase
+
+
+
+
+
+****************************** GLOBAL EXECUTION / GLOBAL ENVIRONMENT ************************************
+
+=> Any code no matter how big or small it runs via Global Execution
+=> It is allocated via THIS.
+=> This is the very first step.
+
+
+******************************* MEMORY CREATION PHASE ******************************************************
+
+=> All variables are collected and kept in the memory.
+=> This is the second step.
+
+
+For this we will take an example of a code block
+
+**************************************
+let val1 = 10
+let val2 = 5
+function addNum(num1, num2){
+    let total = num1 + num2
+    return total
+}
+let result1 = addNum(val1, val2)
+let result2 = addNum(10, 2)
+***************************************
+
+=> val1 = undefined
+=> val2 = undefined
+=> addNum = Definition of the funtion (Decides what operation has to take place)
+=> result1 = undefined
+=> result2 = undefined
+
+
+******************************************************* Execution Phase *******************************************
+
+=> This is the step where the executiont takes place and this is the third phase
+
+=> The execution phase will be concerned only with this part of the code
+
+=> result1 = undefined
+=> result2 = undefined
+
+=> Everytime a function is executed a new box is created called NEW EXECUTIONAL CONTEXT
+
+=> A sandbox is created for both New Variable Env and Execution Thread
+
+=> So every time a function is called a sandbox is created for both Memory Phase and Execution Phase
+
+
+
+
+
+
+                                                                            ===============================
+                                                                            |  New Variable Environment    |
+             Once the task is completed this gets DELETED   ====>           |               +              |    
+                                                                            |      Execution Thread        |
+                                                                            |===============================
+                                                                                            |
+                                                                                            |
+                                    ====================================================================================================
+                                    |                                                                                                  |
+                                    |                                                                                                  |
+                              MEMORY PHASE                                                                                      EXECUTION PHASE
+
+                        => val1 = undefined                                                                                        => num1 = 10
+                        => val2 = undefined                                                                                        => num2 = 5
+                        => total = undefined                                                                                       => total = 15                   
+                                                                                         
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++ The TOTAL value is returned back to GLOBAL EXECUTION CONTEXT +++++++++++++++++++++++++++++++++++++++++++++++++++
