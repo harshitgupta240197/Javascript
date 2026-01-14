@@ -29,7 +29,8 @@ console.log(newTea.describe());
 
 //Using Prototype
 function Animal(species){
-    return this.species = species;
+    return this.species = species; 
+    
 }
 
 Animal.prototype.sound = function(){
