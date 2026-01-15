@@ -143,5 +143,3 @@ function returnSecondValue(getArray){ // In this case we use getArray to keep ev
 }
 
 console.log(returnSecondValue(myNewArray)); // We can pass in any array inside this function and it will always return the second value
-
-
