@@ -24,3 +24,14 @@ class Vehicle {
 
 let newCar = new Vehicle('Toyota', 'Camry')
 console.log(newCar.start());
+
+class Car extends Vehicle{
+    drive(){
+        return `${this.make}: This is an example of inheritance`
+    }
+}
+
+let myCar = new Car('Toyota', 'Corolla')
+console.log(myCar.start());
+console.log(myCar.drive());
+
