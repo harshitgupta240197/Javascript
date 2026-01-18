@@ -1,0 +1,30 @@
+WEB ELEMENT MANIPULATION
+
+Web element manipulation involves using code (primarily JavaScript with the DOM) or tools (like Selenium) to dynamically select, 
+change, add, or remove content, styles, and structure (attributes, text, HTML) of elements in a webpage, making sites interactive, 
+creating dynamic content, and automating tasks like form filling or testing. 
+Key methods include finding elements by ID/class/tag (e.g., getElementById), changing properties (innerHTML, src), 
+manipulating attributes (setAttribute), and responding to user actions with event listeners (e.g., onclick). 
+
+
+WINDOW consists of :
+
+1. DOM - Document Object Models
+        -> Element
+2. BOM - Browser Object Model
+        -> Screen
+        -> Navigator
+        -> Location
+3. JavaScript
+        -> objects
+        -> Array
+        -> Function
+        -> Class
+
+Document Object Model (DOM): 
+A tree-like representation of the HTML document, allowing scripts to access and modify its structure, style, and content.
+
+The Browser Object Model (BOM):
+In JavaScript this is a collection of objects that allows JavaScript to interact with the web browser and its environment, 
+beyond the content of the web page itself. The top-level object in the BOM hierarchy is the window object, which contains 
+all other BOM objects. 
