@@ -24,7 +24,16 @@ WINDOW consists of :
 Document Object Model (DOM): 
 A tree-like representation of the HTML document, allowing scripts to access and modify its structure, style, and content.
 
+DOM MANIPULATION : 
+    -> get the element
+    -> event listening
+
 The Browser Object Model (BOM):
 In JavaScript this is a collection of objects that allows JavaScript to interact with the web browser and its environment, 
 beyond the content of the web page itself. The top-level object in the BOM hierarchy is the window object, which contains 
 all other BOM objects. 
+
+
+
+HTML : Markup Language
+DOM : Processed elements in document tree in memory.
