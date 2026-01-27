@@ -1,5 +1,4 @@
 // Example 1 : Accessing DOM Elements
-
 document
   .getElementById('changeTextButton')
   .addEventListener('click', function () {
@@ -39,6 +38,17 @@ document
       newItem.textContent = 'Eggs'
 
       let shop = document.getElementById('shoppingList');
-      shop.append('Yolk');
+      shop.appendChild(newItem);  // This is a node
+      
+    })
+
+
+    // Example 5 : Removing DOM Elements
+document
+    .getElementById('removeLastTask')
+    .addEventListener('click', function(){
+
+      let tasks = document.getElementById('taskList')
+      tasks.lastElementChild.remove()
       
     })
