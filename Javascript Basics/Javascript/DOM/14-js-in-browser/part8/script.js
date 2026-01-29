@@ -52,3 +52,21 @@ document
       tasks.lastElementChild.remove()
       
     })
+
+// Example 6 : Event Handling in the DOM
+document 
+  .getElementById('clickMeButton')
+  .addEventListener('dblclick', function(){
+    alert('chai')
+  })
+
+  // Example 7 : Event Delegation
+  document
+    .getElementById('teaList')
+    .addEventListener('click', function(event){
+
+      if (event.target && event.target.matches('.teaItem')) {
+        alert(`You selected ${event.target.textContent}`)
+      }
+    })
+    
