@@ -69,4 +69,16 @@ document
         alert(`You selected ${event.target.textContent}`)
       }
     })
+
+// Example 8 : Form Handling
+document
+  .getElementById('feedbackForm')
+  .addEventListener('submit', function(event){    // The event listener will be SUBMIT
+    event.preventDefault()
+    let feedback = document.getElementById('feedbackInput').value   // .value ensures the entered word
+    console.log(feedback);
+    document.getElementById('feedbackDisplay').textContent = `The feedback is ${feedback}`
     
+  })
+    
+  // Example 9 : DOM Content Loaded
