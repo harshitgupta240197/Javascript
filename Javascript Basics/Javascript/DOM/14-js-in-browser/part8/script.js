@@ -82,3 +82,16 @@ document
   })
     
   // Example 9 : DOM Content Loaded
+  document.addEventListener('DOMContentLoaded', function(){
+    
+    document.getElementById('domStatus').textContent = 'DOM fully loaded'
+  })
+
+  // Example 10 : CSS Classes Manipulation
+  document
+    .getElementById('toggleHighlight')
+    .addEventListener('click', function(){
+
+      grabText = document.getElementById('descriptionText')
+      console.log(grabText.classList.toggle('highlight'));
+    })
