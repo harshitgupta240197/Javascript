@@ -7,18 +7,26 @@ handling time-consuming tasks like network requests, data fetching (APIs), and f
 
 // Ability to have a PAUSE in the language
 
+/**
+ 
+ 1. Network calls
+ 2. Write / Read files
+ 3. Time Functions
+ 4. User Inputs
+
+ */
+
 function sayHello() {
-  console.log("I would like to say Hello");
+  console.log('Hey I am saying Hello!');
+}
+
+for (let i = 0; i < 15; i++) {
+  console.log(i);
+  ;
+  
 }
 
 setTimeout(() => {
-  sayHello();
-}, 4000);
-
-console.log("chaicode");
-
-
-// SYNCHRONOUS CODE
-for (let index = 0; index < 10; index++) {
-  console.log(index);
-}
+  sayHello()
+  
+}, 9000);
