@@ -30,6 +30,16 @@ app.get('/cows', (req, res) => {
     res.send('MAWWWW')
 })
 
+// QUERY STRING
+app.get('/search', (req, res) => {
+    // console.log(req.query);
+    const {q} = req.query;
+    if (!q) {
+        res.send('Nothing found if nothing searched!')
+    }
+    res.send(`<h1>Search results for ${q}</h1>`)
+})
+
 // POST REQUEST
 
 app.post('/dogs', (req, res) => {
