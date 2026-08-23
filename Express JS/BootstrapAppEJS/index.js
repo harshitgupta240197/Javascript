@@ -5,7 +5,7 @@ const redditData = require('./data.json')
 console.log(redditData);
 
 // Serving static assets in Express
-pp.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')))
 
 
 // Setting EJS as the View Engine
