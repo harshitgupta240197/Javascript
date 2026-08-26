@@ -31,8 +31,14 @@ const categories = ['fruit', 'vegetable', 'dairy']
 
 // for the main products display page
 app.get('/products', async (req, res) => {
-    const products = await Product.find({})
-    res.render('products/index', { products })
+    const { category } = req.query;
+    if (category) {
+        const products = await Product.find({ category })
+        res.render('products/index', { products, category })
+    } else {
+        const products = await Product.find({})
+        res.render('products/index', { products, category: 'All' })
+    }
 })
 
 // for the page for adding new products
