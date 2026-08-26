@@ -26,6 +26,9 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
+// Creating an array for Categories
+const categories = ['fruit', 'vegetable', 'dairy']
+
 // for the main products display page
 app.get('/products', async (req, res) => {
     const products = await Product.find({})
@@ -34,7 +37,7 @@ app.get('/products', async (req, res) => {
 
 // for the page for adding new products
 app.get('/products/new', (req, res) => {
-    res.render('products/new')
+    res.render('products/new', { categories })
 })
 
 // For the SUBMIT FORM route for new product
@@ -55,7 +58,7 @@ app.get('/products/:id', async (req, res) => {
 app.get('/products/:id/edit', async (req, res) => {
     const { id } = req.params;
     const product = await Product.findById(id)
-    res.render('products/edit', { product })
+    res.render('products/edit', { product, categories })
 })
 
 // for submitting the EDITED form
