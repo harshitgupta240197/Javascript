@@ -3,6 +3,7 @@ const app = express()
 const path = require('path')
 const mongoose = require('mongoose')
 const Campground = require('./models/campground')
+const methodOverride = require('method-override')
 
 // Connection details:
 mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp')
@@ -19,8 +20,9 @@ mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp')
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
-// Setting up the body parser
-app.use(express.urlencoded({ extended: true }))
+// Setting up the body parser and also method-override
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 
 // Home page
 app.get('/', (req, res) => {
@@ -49,6 +51,19 @@ app.post('/campgrounds', async (req, res) => {
 app.get('/campgrounds/:id', async (req, res) => {
     const campground = await Campground.findById(req.params.id)
     res.render('campgrounds/show', { campground })
+})
+
+// Editing page for campgrounds
+app.get('/campgrounds/:id/edit', async (req, res) => {
+    const campground = await Campground.findById(req.params.id)
+    res.render('campgrounds/edit', { campground })
+})
+
+// End point for submitting EDITED form
+app.put('/campgrounds/:id', async (req, res) => {
+    const { id } = req.params;
+    const campground = await Campground.findByIdAndUpdate(id, { ...req.body.campground });
+    res.redirect(`/campgrounds/${campground._id}`)
 })
 
 // Port set up
