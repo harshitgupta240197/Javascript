@@ -110,10 +110,12 @@ app.post('/campgrounds/:id/reviews', validateReview, catchAsync(async(req, res) 
     res.redirect(`/campgrounds/${campground._id}`)
 }))
 
-// Error handling if nothing runs above this - CATCH ALL ROUTE
-// app.all('/{*path}', (req, res, next) => {
-//     res.send('404!')
-// })
+app.delete('/campgrounds/:id/reviews/:reviewId', catchAsync(async (req, res) => {
+    const { id, reviewId} = req.params;
+    Campground.findByIdAndUpdate()
+    await Review.findByIdAndDelete(req.params.reviewId);
+}))
+
 app.all('/{*path}', (req, res, next) => {
     next(new ExpressError('Page not found', 404))
 })
