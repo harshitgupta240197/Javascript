@@ -1,20 +1,39 @@
 // ____________________________________________________________
 
+function fetchData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let success = true;
+            if (success) {
+                resolve('Data fetched successfully')
+            } else {
+                reject('Error fetching the data')
+            }
+        }, 3000);
+    })
+}
+
+fetchData()
+    .then((data) => console.log(data))
+    .catch ((error) => console.error(error));
+
+// ____________________________________________________________
+
 const fakeRequest = (url) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve()
-        },1000)
+        }, 1000)
     })
 }
 
 fakeRequest('google.com')
-.then(() => {
-    console.log('Completed the reqest');
-})
-.catch(() => {
-    console.log('You got an error');
-})
+    .then(() => {
+        console.log('Completed the reqest');
+    })
+    .catch(() => {
+        console.log('You got an error');
+    })
 
 
 // ____________________________________________________________
