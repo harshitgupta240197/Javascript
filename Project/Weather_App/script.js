@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const API_KEY = '74b019e201c02getyourownapi';
 
+  // _____________________________________________________________________
+
   getWeatherBtn.addEventListener('click', async () => {
     const city = cityInput.value.trim();
     if(!city) return; // In case the input is empty handle it
@@ -25,11 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
     await response.json()
   });
 
+  // _____________________________________________________________________
+
   async function fetchWeatherData(city) {
     //gets the data
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;
 
-    const response = fetch(url)
+    const response = await fetch(url)
 
     if (!response) {
       throw new Error('City not found!')
@@ -38,6 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return data
   }
 
+  // _____________________________________________________________________
+
   function displayWeatherData(data) {
     const { name, main, weather } = data;
     cityNameDisplay.textContent = name;
@@ -45,9 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
     descriptionDisplay.textContent = `Weather: ${weather[0].description}`;
 
     // Unlock the display
-    weatherInfo.classList.remove('hiddem');
+    weatherInfo.classList.remove('hidden');
     errorMessage.classList.add('hidden');
   }
+
+  // _____________________________________________________________________
 
   function showError() {
     weatherInfo.classList.remove('hidden');
