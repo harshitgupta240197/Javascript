@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalPriceDisplay = document.querySelector('#total-price');
     const checkoutBtn = document.querySelector('#checkout-btn');
 
-// ___________________________________________________________________________
+    // ___________________________________________________________________________
 
     // Creating the products
     const products = [
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Creating a cart empty array
     const cart = []
 
-// ___________________________________________________________________________
+    // ___________________________________________________________________________
 
     products.forEach(product => {
         const productDiv = document.createElement('div');
@@ -42,14 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-// ___________________________________________________________________________
+    // ___________________________________________________________________________
 
     function addToCart(product) {
         cart.push(product);
         renderCart();
     };
 
-// ___________________________________________________________________________
+    // ___________________________________________________________________________
 
     function renderCart() {
 
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     };
-// ___________________________________________________________________________
+    // ___________________________________________________________________________
 
     checkoutBtn.addEventListener('click', () => {
         cart.length = 0;
