@@ -56,6 +56,26 @@ h2 {
   background-color: #3700b3;
 }
 
+.cart-item {
+  background-color: #333333;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.cart-item button {
+  background-color: #d32f2f;
+  border: none;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
 #cart-items {
   margin-bottom: 20px;
 }

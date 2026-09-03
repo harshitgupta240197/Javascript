@@ -1,91 +1,127 @@
-// Loading the DOM
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Grabbing the elements from index.html
-    const productList = document.querySelector('#product-list');
-    const cartItems = document.querySelector('#cart-items');
-    const emptyCartMessage = document.querySelector('#empty-cart');
-    const cartTotal = document.querySelector('#cart-total');
-    const totalPriceDisplay = document.querySelector('#total-price');
-    const checkoutBtn = document.querySelector('#checkout-btn');
+  /* ---------------------------------------------------------------
+     DOM references
+  --------------------------------------------------------------- */
 
-    // ___________________________________________________________________________
+  const productList       = document.querySelector('#product-list');
+  const cartItems         = document.querySelector('#cart-items');
+  const emptyCartMessage  = document.querySelector('#empty-cart');
+  const cartTotal         = document.querySelector('#cart-total');
+  const totalPriceDisplay = document.querySelector('#total-price');
+  const checkoutBtn       = document.querySelector('#checkout-btn');
 
-    // Creating the products
-    const products = [
-        { id: 1, name: 'Product 1', price: 20 },
-        { id: 2, name: 'Product 2', price: 30 },
-        { id: 3, name: 'Product 3', price: 40 }
-    ]
+  /* ---------------------------------------------------------------
+     State
+  --------------------------------------------------------------- */
 
-    // Creating a cart empty array
-    const cart = []
+  const products = [
+    { id: 1, name: 'Product 1', price: 20 },
+    { id: 2, name: 'Product 2', price: 30 },
+    { id: 3, name: 'Product 3', price: 40 },
+  ];
 
-    // ___________________________________________________________________________
+  const cart = [];
 
-    products.forEach(product => {
-        const productDiv = document.createElement('div');
-        productDiv.classList.add('product');
-        productDiv.innerHTML = `
-        <span>${product.name} - $${product.price.toFixed(2)}</span>
-        <button data-id = '${product.id}'>Add to cart</button>
-        `;
-        // Now we will appemnd the items
-        productList.appendChild(productDiv)
+  /* ---------------------------------------------------------------
+     Helpers
+  --------------------------------------------------------------- */
+
+  const formatPrice = (value) => `$${value.toFixed(2)}`;
+
+  const calculateTotal = () =>
+    cart.reduce((sum, item) => sum + item.price, 0);
+
+  /* ---------------------------------------------------------------
+     Rendering
+  --------------------------------------------------------------- */
+
+  function renderProducts() {
+    products.forEach((product) => {
+      const productDiv = document.createElement('div');
+      productDiv.classList.add('product');
+      productDiv.innerHTML = `
+        <span>${product.name} - ${formatPrice(product.price)}</span>
+        <button data-id="${product.id}">Add to cart</button>
+      `;
+      productList.appendChild(productDiv);
+    });
+  }
+
+  function renderCart() {
+    cartItems.innerHTML = '';
+
+    if (cart.length === 0) {
+      emptyCartMessage.classList.remove('hidden');
+      cartTotal.classList.add('hidden');
+      totalPriceDisplay.textContent = formatPrice(0);
+      return;
+    }
+
+    emptyCartMessage.classList.add('hidden');
+    cartTotal.classList.remove('hidden');
+
+    cart.forEach((item, index) => {
+      const cartItem = document.createElement('div');
+      cartItem.classList.add('cart-item');
+      cartItem.innerHTML = `
+        <span>${item.name} - ${formatPrice(item.price)}</span>
+        <button data-index="${index}">Remove</button>
+      `;
+      cartItems.appendChild(cartItem);
     });
 
-    productList.addEventListener('click', (e) => {
-        if (e.target.tagName === 'BUTTON') {
-            const productId = parseInt(e.target.getAttribute('data-id'))
-            const product = products.find(p => p.id === productId)
-            addToCart(product)
-        }
-    });
+    totalPriceDisplay.textContent = formatPrice(calculateTotal());
+  }
 
-    // ___________________________________________________________________________
+  /* ---------------------------------------------------------------
+     Cart operations
+  --------------------------------------------------------------- */
 
-    function addToCart(product) {
-        cart.push(product);
-        renderCart();
-    };
+  function addToCart(product) {
+    cart.push(product);
+    renderCart();
+  }
 
-    // ___________________________________________________________________________
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    renderCart();
+  }
 
-    function renderCart() {
+  function clearCart() {
+    cart.length = 0;
+    renderCart();
+  }
 
-        // Removing the 'Your cart is empty once and item is added.'
-        cartItems.innerHTML = ''
+  /* ---------------------------------------------------------------
+     Event listeners
+  --------------------------------------------------------------- */
 
-        // Setting total price initially to 0
-        let totalPrice = 0
+  productList.addEventListener('click', (e) => {
+    if (e.target.tagName !== 'BUTTON') return;
 
-        if (cart.length > 0) {
+    const productId = Number(e.target.dataset.id);
+    const product = products.find((p) => p.id === productId);
+    addToCart(product);
+  });
 
-            emptyCartMessage.classList.add('hidden')
-            cartTotal.classList.remove('hidden')
+  cartItems.addEventListener('click', (e) => {
+    if (e.target.tagName !== 'BUTTON') return;
 
-            cart.forEach((item, index) => {
-                totalPrice += item.price
-                const cartItem = document.createElement('div');
-                cartItem.innerHTML = `
-                ${item.name} - $${item.price.toFixed(2)}
-                `
-                cartItems.appendChild(cartItem);
-                totalPriceDisplay.textContent = `$${totalPrice}`
+    const index = Number(e.target.dataset.index);
+    removeFromCart(index);
+  });
 
-            });
-        } else {
-            emptyCartMessage.classList.remove('hidden')
-            totalPriceDisplay.textContent = 0
-        }
+  checkoutBtn.addEventListener('click', () => {
+    clearCart();
+    alert('Checkout successful');
+  });
 
-    };
-    // ___________________________________________________________________________
+  /* ---------------------------------------------------------------
+     Init
+  --------------------------------------------------------------- */
 
-    checkoutBtn.addEventListener('click', () => {
-        cart.length = 0;
-        alert('Checkout Successful')
-        renderCart()
-    })
+  renderProducts();
+  renderCart();
 
-})
+});
