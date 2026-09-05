@@ -7,7 +7,7 @@
 
 React's core idea: break the UI into small, isolated, reusable pieces of code, and let React figure out how to keep the screen in sync with your data.
 
----
+
 
 ## Table of Contents
 
