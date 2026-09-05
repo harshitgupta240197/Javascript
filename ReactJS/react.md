@@ -9,6 +9,7 @@ React's core idea: break the UI into small, isolated, reusable pieces of code, a
 
 
 
+
 ## Table of Contents
 
 1. [Core Concepts](#-core-concepts)
