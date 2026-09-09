@@ -1,6 +1,7 @@
 import Counter from './Counter'
 import './App.css'
 import Quotefetcher from './Quotefetcher'
+import QuotefetcherLoader from './QuoteFetcherLoader'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <>
       <Counter />
       <br /><br /><br />
+      <QuotefetcherLoader />
       <Quotefetcher />
     </>
   )
